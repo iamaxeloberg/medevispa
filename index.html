@@ -29,6 +29,21 @@
       <label for="datum">Datum:</label>
       <input type="date" id="datum" name="datum" required>
 
+      <label for="tid">Tid:</label>
+      <select id="tid" name="tid" required>
+        <!-- Tidsluckor från 10:00 till 22:00 var 30:e minut -->
+        <option value="">Välj tid</option>
+        <script>
+          for (let h = 10; h <= 22; h++) {
+            const hStr = h < 10 ? "0" + h : h;
+            document.write(`<option>${hStr}:00</option>`);
+            if (h !== 22) {
+              document.write(`<option>${hStr}:30</option>`);
+            }
+          }
+        </script>
+      </select>
+
       <label for="behandling">Behandling:</label>
       <select id="behandling" name="behandling" required>
         <option>Massage</option>
@@ -52,6 +67,24 @@
   </div>
 
   <script>
+    // Lägg till tider i dropdown
+    const tidSelect = document.getElementById("tid");
+    if (tidSelect) {
+      for (let h = 10; h <= 22; h++) {
+        const hStr = h < 10 ? "0" + h : h;
+        const option1 = document.createElement("option");
+        option1.text = `${hStr}:00`;
+        tidSelect.appendChild(option1);
+
+        if (h !== 22) {
+          const option2 = document.createElement("option");
+          option2.text = `${hStr}:30`;
+          tidSelect.appendChild(option2);
+        }
+      }
+    }
+
+    // Skicka formuläret via JavaScript + visa tackmeddelande
     const form = document.getElementById('spaForm');
     const tack = document.getElementById('tackmeddelande');
 
