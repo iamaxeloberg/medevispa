@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Boka Spa</title>
+  <style>
+    body { font-family: sans-serif; background: #f0f0f0; padding: 20px; }
+    .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    input, select, textarea, button {
+      width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc;
+    }
+    button { background: #28a78c; color: white; border: none; cursor: pointer; }
+    button:hover { background: #218838; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Boka Tid på Spa</h1>
+    <form action="medevispa@gmail.com" method="POST" enctype="text/plain">
+      <label for="namn">Namn:</label>
+      <input type="text" id="namn" name="namn" required>
+
+      <label for="epost">E-post:</label>
+      <input type="email" id="epost" name="epost" required>
+
+      <label for="datum">Datum:</label>
+      <input type="date" id="datum" name="datum" required>
+
+      <label for="behandling">Behandling:</label>
+      <select id="behandling" name="behandling" required>
+        <option>Massage</option>
+        <option>Headspa</option>
+        <option>Facial</option>
+        <option>Kort Guided Meditation</option>
+        <option>Lång Guided Meditation</option>
+        <option>Noppning</option>
+        <option>Vaxning</option>
+      </select>
+
+      <label for="meddelande">Övrigt:</label>
+      <textarea id="meddelande" name="meddelande" rows="4"></textarea>
+
+      <button type="submit">Skicka Bokning</button>
+    </form>
+  </div>
+
+</body>
+</html>
